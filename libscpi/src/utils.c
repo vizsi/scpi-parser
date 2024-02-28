@@ -467,6 +467,20 @@ static size_t cmdSeparatorPos(const char * cmd, size_t len) {
     return result;
 }
 
+scpi_bool_t comparator(const char* pattern, size_t pattern_len, const char* str){
+	char comp[20];
+	uint8_t i = 0;
+	for(i = 0; i < pattern_len; i++){
+		comp[i] = pattern[i];
+	}
+	comp[i] = '\0';
+	if(strstr(str, comp) != NULL || strcmp(comp,"<value>\0") == 0){
+		return TRUE;
+	}
+	return FALSE;
+}
+
+
 /**
  * Match pattern and str. Pattern is in format UPPERCASElowercase
  * @param pattern
@@ -477,6 +491,11 @@ static size_t cmdSeparatorPos(const char * cmd, size_t len) {
  */
 scpi_bool_t matchPattern(const char * pattern, size_t pattern_len, const char * str, size_t str_len, int32_t * num) {
     int pattern_sep_pos_short;
+// <value> set parameter
+    if(strstr(pattern, "<value>") != NULL && comparator(pattern, pattern_len, str)){
+    	str = pattern;
+    	str_len = pattern_len;
+    }
 
     if ((pattern_len > 0) && pattern[pattern_len - 1] == '#') {
         size_t new_pattern_len = pattern_len - 1;
@@ -655,7 +674,8 @@ scpi_bool_t matchCommand(const char * pattern, const char * cmd, size_t len, int
                 SKIP_PATTERN(3); /* for skip ']' in "][:" , pattern_ptr continue, while cmd_ptr remain unchanged */
                 /* brackets++; */
                 /* brackets--; */
-            } else {
+            }
+            else {
                 result = FALSE;
                 break;
             }

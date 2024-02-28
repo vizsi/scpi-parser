@@ -173,6 +173,7 @@ extern "C" {
     XE(SCPI_ERROR_FRAMING_ERROR_IN_CMD_MSG,     -362, "Framing error in program message")             \
     X(SCPI_ERROR_INPUT_BUFFER_OVERRUN,          -363, "Input buffer overrun")                         \
     XE(SCPI_ERROR_TIME_OUT,                     -365, "Time out error")                               \
+	X(SCPI_ERROR_EEPROM_COMMUNICATION,         	-366, "EEPROM communication fail")                    \
     XE(SCPI_ERROR_QUERY_ERROR,                  -400, "Query error")                                  \
     XE(SCPI_ERROR_QUERY_INTERRUPTED,            -410, "Query INTERRUPTED")                            \
     XE(SCPI_ERROR_QUERY_UNTERMINATED,           -420, "Query UNTERMINATED")                           \

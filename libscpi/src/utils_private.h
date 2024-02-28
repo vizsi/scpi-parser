@@ -51,7 +51,7 @@ extern "C" {
 #else
 #define LOCAL
 #endif
-
+	scpi_bool_t comparator(const char* pattern, size_t pattern_len, const char* str);
     char * strnpbrk(const char *str, size_t size, const char *set) LOCAL;
     scpi_bool_t compareStr(const char * str1, size_t len1, const char * str2, size_t len2) LOCAL;
     scpi_bool_t compareStrAndNum(const char * str1, size_t len1, const char * str2, size_t len2, int32_t * num) LOCAL;
