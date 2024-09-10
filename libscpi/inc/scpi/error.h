@@ -174,6 +174,7 @@ extern "C" {
     X(SCPI_ERROR_INPUT_BUFFER_OVERRUN,          -363, "Input buffer overrun")                         \
     XE(SCPI_ERROR_TIME_OUT,                     -365, "Time out error")                               \
 	X(SCPI_ERROR_EEPROM_COMMUNICATION,         	-366, "EEPROM communication fail")                    \
+	X(SCPI_ERROR_EEPROM_BOARD_NOT_DETECTED,      -367, "Fixture board not detected")                    \
     XE(SCPI_ERROR_QUERY_ERROR,                  -400, "Query error")                                  \
     XE(SCPI_ERROR_QUERY_INTERRUPTED,            -410, "Query INTERRUPTED")                            \
     XE(SCPI_ERROR_QUERY_UNTERMINATED,           -420, "Query UNTERMINATED")                           \

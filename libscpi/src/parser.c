@@ -206,7 +206,7 @@ scpi_bool_t SCPI_Parse(scpi_t * context, char * data, int len) {
     context->output_count = 0;
     context->first_output = TRUE;
 
-    while (1) {
+//    while (1) {
         r = scpiParser_detectProgramMessageUnit(state, data, len);
 
         if (state->programHeader.type == SCPI_TOKEN_INVALID) {
@@ -237,14 +237,14 @@ scpi_bool_t SCPI_Parse(scpi_t * context, char * data, int len) {
             }
         }
 
-        if (r < len) {
-            data += r;
-            len -= r;
-        } else {
-            break;
-        }
-
-    }
+//        if (r < len) {
+//            data += r;
+//            len -= r;
+//        } else {
+//            break;
+//        }
+//
+//    }
 
     /* conditionally write new line */
    // writeNewLine(context);
